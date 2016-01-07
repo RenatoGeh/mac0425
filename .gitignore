@@ -1,0 +1,11 @@
+*.out
+*.tar.gz
+*.tar
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.zip
+

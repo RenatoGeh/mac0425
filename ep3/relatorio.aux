@@ -1,0 +1,65 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\catcode `"\active 
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\abx@aux@sortscheme{nty}
+\@writefile{toc}{\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax }
+\@writefile{lof}{\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax }
+\@writefile{lot}{\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax }
+\select@language{brazilian}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\select@language{brazilian}}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\select@language{brazilian}}
+\@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\select@language{brazilian}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {1}Weka}{1}{section.1}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Foi usada a ferramenta Weka para pr\IeC {\'e}-processamento e classifica\IeC {\c c}\IeC {\~a}o. }{1}{paragraph*.1}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {2}Pr\IeC {\'e}-processamento}{1}{section.2}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ No EP dividimos as mensagens de SMS em v\IeC {\'a}rias categorias e tr\IeC {\^e}s classes: }{1}{paragraph*.2}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ A classe Type classifica a mensagem como uma mensagem de spam ou de ham. Tokens \IeC {\'e} toda sequ\IeC {\^e}ncia de caracteres delimitada por \texttt  {``.,;:'"()?!''}. Rules s\IeC {\~a}o caracter\IeC {\'\i }sticas de cada caractere de cada mensagem. }{1}{paragraph*.3}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ O feature vector resultante fica ent\IeC {\~a}o da seguinte forma: }{1}{paragraph*.4}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Onde \texttt  {type} $\in \{$\texttt  {ham}$, $\texttt  {spam}$\}$, $t_i$ \IeC {\'e} um Token e \texttt  {length, spec\_char, is\_cap, digits} s\IeC {\~a}o n\IeC {\'u}meros inteiros. Cada Token $t_i$ possue um valor $t_i[0]$ que \IeC {\'e} uma \texttt  {string} e representa uma sequ\IeC {\^e}ncia de caractere na mensagem e $t_i[1]$ que \IeC {\'e} o n\IeC {\'u}mero de vezes que $t_i[0]$ ocorre em todas as mensagens. Cada $V_i$ representa uma mensagem. }{2}{paragraph*.5}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Weka Preprocess}{2}{subsection.2.1}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ No Weka foi usado o filtro \texttt  {StringToWordVector} para gerar os Tokens. Foram escolhidos os argumentos \texttt  {WordTokenizer} com delimitadores \texttt  {``.,;:'"()?!''}, \texttt  {outputWordCounts=true} para que conte a frequ\IeC {\^e}ncia dos tokens ao inv\IeC {\'e}s de s\IeC {\'o} presen\IeC {\c c}a e \texttt  {useStoplist=true} para que use as stopwords. }{2}{paragraph*.6}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o}{2}{section.3}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Foram usados os seguintes m\IeC {\'e}todos de classifica\IeC {\c c}\IeC {\~a}o: }{2}{paragraph*.7}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Para todos os testes foi utilizado 66\% do conjunto de mensagens como treino e o resto como conjunto de teste. }{2}{paragraph*.8}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}NearestNeighbor}{2}{subsection.3.1}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Os resultados da classifica\IeC {\c c}\IeC {\~a}o com NearestNeighbor: }{2}{paragraph*.9}}
+\@writefile{lol}{\defcounter {refsection}{0}\relax }\@writefile{lol}{\contentsline {lstlisting}{nn.txt}{2}{lstlisting.-1}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Onde \texttt  {KNN} \IeC {\'e} o n\IeC {\'u}mero de vizinhos usados na m\IeC {\'e}dia, \texttt  {correct} \IeC {\'e} a porcentagem de acertos na classifica\IeC {\c c}\IeC {\~a}o, \texttt  {mean abs error} \IeC {\'e} a m\IeC {\'e}dia de erro absoluto e \texttt  {relative abs error} \IeC {\'e} o erro relativo. }{3}{paragraph*.10}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Portanto, a melhor configura\IeC {\c c}\IeC {\~a}o de par\IeC {\^a}metros \IeC {\'e} \texttt  {KNN=1} e com algoritmo de dist\IeC {\^a}ncia Euclidiana. }{3}{paragraph*.11}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}DecisionTree}{3}{subsection.3.2}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Os resultados da classifica\IeC {\c c}\IeC {\~a}o com DecisionTree: }{3}{paragraph*.12}}
+\@writefile{lol}{\defcounter {refsection}{0}\relax }\@writefile{lol}{\contentsline {lstlisting}{dt.txt}{3}{lstlisting.-2}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Portanto, a melhor configura\IeC {\c c}\IeC {\~a}o de par\IeC {\^a}metros \IeC {\'e} uma \texttt  {j48 tree} com LaPlace. }{3}{paragraph*.13}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}NaiveBayes}{3}{subsection.3.3}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Os resultados da classifica\IeC {\c c}\IeC {\~a}o com NaiveBayes: }{3}{paragraph*.14}}
+\@writefile{lol}{\defcounter {refsection}{0}\relax }\@writefile{lol}{\contentsline {lstlisting}{nb.txt}{3}{lstlisting.-3}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ Portanto, a melhor configura\IeC {\c c}\IeC {\~a}o de par\IeC {\^a}metros \IeC {\'e} uma \texttt  {NaiveBayes} com \texttt  {SupervisedDiscretization}. Para discretizar os valores, ao inv\IeC {\'e}s de usar a frequ\IeC {\^e}ncia de cada palavra, usou-se se a palavra ocorre ou n\IeC {\~a}o na mensagem (1 se ocorre e 0 se n\IeC {\~a}o ocorre). De forma similar discretizou-se tamb\IeC {\'e}m todas as regras para caracteres. }{3}{paragraph*.15}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Cross-validation}{3}{subsection.3.4}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ A valida\IeC {\c c}\IeC {\~a}o cruzada com todos os poss\IeC {\'\i }veis par\IeC {\^a}metros discutidos acima demorou 2h11 (:O) para ser completada, com os par\IeC {\^a}metros de Cross-Validation 10-folds no Weka em um Linux Mint 17.1 Rebecca com CPU Intel(R) Core i7-4500U @ 1.80 GHz e 16 GB de RAM. }{3}{paragraph*.16}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Respostas para valida\IeC {\c c}\IeC {\~a}o}{4}{subsection.3.5}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ 1. Pode-se ver que o melhor classificador no conjunto de valida\IeC {\c c}\IeC {\~a}o \IeC {\'e} a Naive Bayes com Kernel Estimator, j\IeC {\'a} que tem maior porcentagem de acerto com um baixo desvio padr\IeC {\~a}o. }{4}{paragraph*.18}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ 2. Quando feito apenas com 66\% do conjunto como treino e o restante como teste, \IeC {\'e} poss\IeC {\'\i }vel que tenhamos tido sorte com os testes e portanto o resultado fica viesado. Com a valida\IeC {\c c}\IeC {\~a}o cruzada testamos v\IeC {\'a}rios testes com diferentes treinos, o que torna o resultado menos viesado (ainda que com um tanto de vi\IeC {\'e}s). }{4}{paragraph*.19}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ 3. A Naive Bayes com Kernel Estimator teve melhores resultados pois usa as propriedades de depend\IeC {\^e}ncia de uma Rede Bayesiana. Por isso, podemos achar probabilidades que n\IeC {\~a}o achar\IeC {\'\i }amos por exemplo no Nearest Neighbour, j\IeC {\'a} que este apenas v\IeC {\^e} seus vizinhos mais pr\IeC {\'o}ximos e n\IeC {\~a}o acharia rela\IeC {\c c}\IeC {\~o}es que poderiam tornar a classifica\IeC {\c c}\IeC {\~a}o melhor. }{4}{paragraph*.20}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ 4. Compara\IeC {\c c}\IeC {\~o}es nunca v\IeC {\~a}o ser completamente confi\IeC {\'a}veis, j\IeC {\'a} que nunca poderemos usar um conjunto infinito de treino para termos 100\% de confian\IeC {\c c}a que os resultados s\IeC {\~a}o corretos. No entanto, para melhorarmos a confian\IeC {\c c}a das compara\IeC {\c c}\IeC {\~o}es podemos sempre usar os mesmos conjuntos de treinos e testes em diferentes classificadores, tendo ent\IeC {\~a}o compara\IeC {\c c}\IeC {\~o}es menos viesadas. }{4}{paragraph*.21}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {4}Algumas \IeC {\'a}rvores :)}{4}{section.4}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{ O Weka, em modo debug, imprime as \IeC {\'a}rvores de decis\IeC {\~a}o usadas. Visualizando as \IeC {\'a}rvores usadas no m\IeC {\'e}todo \texttt  {j48tree}, \texttt  {BFTree} com corte e \texttt  {BFTree} sem corte, pode-se ver que apesar da \IeC {\'a}rvore \texttt  {j48} ter se sa\IeC {\'\i }do melhor na classifica\IeC {\c c}\IeC {\~a}o vista na se\IeC {\c c}\IeC {\~a}o anterior, a \IeC {\'a}rvore gerada \IeC {\'e} maior que as geradas pela \texttt  {BFTree} (tanto com corte e sem corte). }{4}{paragraph*.22}}
+\@writefile{lol}{\defcounter {refsection}{0}\relax }\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Uma \texttt  {j48tree} onde os n\IeC {\'o}s decis\IeC {\~o}es s\IeC {\~a}o as regras ou tokens mencionados na se\IeC {\c c}\IeC {\~a}o de pr\IeC {\'e}-processamento e as folhas s\IeC {\~a}o as classifica\IeC {\c c}\IeC {\~o}es.}{4}{lstlisting.1}}
+\@writefile{lol}{\defcounter {refsection}{0}\relax }\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}Uma \texttt  {BFTree} sem corte. Esta \IeC {\'a}rvore \IeC {\'e} um pouco menor que a \texttt  {j48}, mas sua classifica\IeC {\c c}\IeC {\~a}o gerou piores resultados.}{5}{lstlisting.2}}
+\@writefile{lol}{\defcounter {refsection}{0}\relax }\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}Uma \texttt  {BFTree} com pre-corte. Esta \IeC {\'a}rvore \IeC {\'e} muito menor que as outras e ainda teve melhores resultados que a mesma \IeC {\'a}rvore sem corte.}{6}{lstlisting.3}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {5}Conclus\IeC {\~o}es}{6}{section.5}}

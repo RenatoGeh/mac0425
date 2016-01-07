@@ -1,0 +1,9 @@
+digraph{
+  mindist=0.5
+  A -> B
+  B -> C
+  B -> D
+  D -> E
+  E -> F
+  C -> G
+}

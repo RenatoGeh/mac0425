@@ -1,0 +1,19 @@
+DecisionTree
+  @j48 algorithm (w/ confidenceFactor = 0.25)
+    -LaPlace=false
+      correct = 98.2011 %
+      mean abs error = 0.0287
+      relative abs error = 12.3106 %
+    -LaPlace=true
+      correct = 98.2011 %
+      mean abs error = 0.032
+      relative abs error = 13.8544 %
+  @BFTree (Best-first Decision Tree)
+    -Gini=true
+      correct = 97.672 %
+      mean abs error = 0.0425
+      relative abs error = 18.4121 %
+    -Gini=false
+      correct = 97.5132 %
+      mean abs error = 0.0427
+      relative abs error = 18.4906 %

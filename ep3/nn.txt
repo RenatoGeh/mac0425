@@ -1,0 +1,35 @@
+Nearest Neighbour
+  @Euclidean
+    -KNN 1
+      correct = 95.1323 %
+      mean abs error = 0.0489
+      relative abs error = 21.167 %
+    -KNN 5
+      correct = 94.9735 %
+      mean abs error = 0.0554
+      relative abs error = 23.9808
+  @Manhattan
+    -KNN 1
+      correct = 95.0794 %
+      mean abs error =  0.0493
+      relative abs error = 21.3168 %
+    -KNN 5
+      correct = 95.0794 %
+      mean abs error = 0.0531
+      relative abs error = 22.9949 %
+  @Levenshtein
+    -KNN 1
+      correct = 95.0794 %
+      mean abs error = 0.0493
+      relative abs error = 21.3168 %
+    -KNN 5
+      #error
+  @Chebyshev
+    -KNN 1
+      correct = 91.0053 %
+      mean abs error = 0.185
+      relative abs error = 80.0721 %
+    -KNN 5
+      correct = 87.3545 %
+      mean abs error = 0.2259
+      relative abs error = 97.7585%

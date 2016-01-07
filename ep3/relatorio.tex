@@ -1,0 +1,305 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage[top=1.0in,bottom=1.0in]{geometry}
+\usepackage{hyperref}
+\usepackage[singlelinecheck=false]{caption}
+\usepackage[backend=biber,url=true,doi=true,eprint=false]{biblatex}
+\usepackage{enumitem}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage{tikz}
+\usepackage{listings,multicol}
+\usepackage{parcolumns}
+\usetikzlibrary{snakes,arrows,shapes}
+
+\addbibresource{../common/references.bib}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\newcommand\defeq{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{=}}}
+
+\titleformat{\section}
+  {\normalfont\scshape\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\scshape\bfseries}{\thesubsection}{1em}{}
+\titleformat{\paragraph}
+  {\normalfont}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}
+  {\normalfont}{\thesubparagraph}{1em}{}
+
+\captionsetup[table]{labelsep=space}
+
+\theoremstyle{plain}
+
+\newtheorem*{spn-def}{Definição}
+\newtheorem*{spn-thm}{Teorema}
+
+\lstset{
+  basicstyle=\scriptsize,
+  captionpos=b,
+  inputencoding=utf8,
+  extendedchars=true,
+  literate={£}{{\pounds}}1
+}
+
+\title{\textbf{EP3 - Aprendizagem Supervisionada}\\
+  \Large{MAC0425 - Inteligência Artificial}}
+
+\begin{document}
+\date{}
+\author{}
+\vspace*{-40pt}
+{\let\newpage\relax\maketitle}
+
+Renato Lui Geh
+
+NUSP:8536030
+
+\section{Weka}
+
+\paragraph{
+  Foi usada a ferramenta Weka para pré-processamento e classificação.
+}
+
+\section{Pré-processamento}
+
+\paragraph{
+  No EP dividimos as mensagens de SMS em várias categorias e três classes:
+}
+
+\begin{enumerate}
+  \item Type
+    \begin{itemize}
+      \item \texttt{spam}
+      \item \texttt{ham}
+    \end{itemize}
+  \item Tokens
+    \begin{itemize}
+      \item (\texttt{``buy''}, $f_0$)
+      \item (\texttt{``NEW''}, $f_1$)
+      \item (\texttt{``NOKIA''}, $f_2$)
+      \item (\texttt{''NOW''}, $f_3$)
+      \item ...
+    \end{itemize}
+  \item Rules
+    \begin{itemize}
+      \item \texttt{length} - tamanho da mensagem.
+      \item \texttt{spec\_char} - se é um caractere especial.
+      \item \texttt{is\_cap} - se é uma letra maiúscula.
+      \item \texttt{digits} - se é um dígito (0, 9).
+    \end{itemize}
+\end{enumerate}
+
+\paragraph {
+  A classe Type classifica a mensagem como uma mensagem de spam ou de ham. Tokens é toda sequência
+  de caracteres delimitada por \texttt{``.,;:'"()?!''}. Rules são características de cada caractere
+  de cada mensagem.
+}
+
+\paragraph {
+  O feature vector resultante fica então da seguinte forma:
+}
+
+\begin{equation}
+  V_i = [\text{type}, \text{length}, \text{spec\_char}, \text{is\_cap}, \text{digits},
+    t_0, t_1, ..., t_n]
+\end{equation}
+
+\paragraph{
+  Onde \texttt{type} $\in \{$\texttt{ham}$, $\texttt{spam}$\}$, $t_i$ é um Token e \texttt{length,
+  spec\_char, is\_cap, digits} são números inteiros. Cada Token $t_i$ possue um valor $t_i[0]$ que
+  é uma \texttt{string} e representa uma sequência de caractere na mensagem e $t_i[1]$ que é o
+  número de vezes que $t_i[0]$ ocorre em todas as mensagens. Cada $V_i$ representa uma mensagem.
+}
+
+\subsection{Weka Preprocess}
+
+\paragraph{
+  No Weka foi usado o filtro \texttt{StringToWordVector} para gerar os Tokens. Foram escolhidos os
+  argumentos \texttt{WordTokenizer} com delimitadores \texttt{``.,;:'"()?!''},
+  \texttt{outputWordCounts=true} para que conte a frequência dos tokens ao invés de só presença e
+  \texttt{useStoplist=true} para que use as stopwords.
+}
+
+\section{Classificação}
+
+\paragraph{
+  Foram usados os seguintes métodos de classificação:
+}
+
+\begin{enumerate}
+  \item NearestNeighbor (IBk)
+    \begin{itemize}
+      \item Euclidean
+      \item Manhattan
+      \item Levenshtein
+      \item Chebyshev
+    \end{itemize}
+  \item DecisionTree
+    \begin{itemize}
+      \item j48
+        \begin{itemize}
+          \item LaPlace
+          \item $\neg$ LaPlace
+        \end{itemize}
+      \item BFTree (Best-first Decision Tree)
+        \begin{itemize}
+          \item Gini
+          \item $\neg$ Gini
+        \end{itemize}
+    \end{itemize}
+  \item NaiveBayes
+    \begin{itemize}
+      \item $\neg$ KernelEstimator $\land$ $\neg$ SupervisedDiscretization
+      \item KernelEstimator
+      \item SupervisedDiscretization
+    \end{itemize}
+\end{enumerate}
+
+\paragraph{
+  Para todos os testes foi utilizado 66\% do conjunto de mensagens como treino e o resto como
+  conjunto de teste.
+}
+
+\subsection{NearestNeighbor}
+
+\paragraph{
+  Os resultados da classificação com NearestNeighbor:
+}
+
+\lstinputlisting[multicols=2]{nn.txt}
+
+\paragraph{
+  Onde \texttt{KNN} é o número de vizinhos usados na média, \texttt{correct} é a porcentagem de
+  acertos na classificação, \texttt{mean abs error} é a média de erro absoluto e \texttt{relative
+  abs error} é o erro relativo.
+}
+
+\paragraph{
+  Portanto, a melhor configuração de parâmetros é \texttt{KNN=1} e com algoritmo de distância
+  Euclidiana.
+}
+
+\subsection{DecisionTree}
+
+\paragraph{
+  Os resultados da classificação com DecisionTree:
+}
+
+\lstinputlisting[multicols=2]{dt.txt}
+
+\paragraph{
+  Portanto, a melhor configuração de parâmetros é uma \texttt{j48 tree} com LaPlace.
+}
+
+\subsection{NaiveBayes}
+
+\paragraph{
+  Os resultados da classificação com NaiveBayes:
+}
+
+\lstinputlisting[multicols=2]{nb.txt}
+
+\paragraph{
+  Portanto, a melhor configuração de parâmetros é uma \texttt{NaiveBayes} com
+  \texttt{SupervisedDiscretization}. Para discretizar os valores, ao invés de usar a frequência de
+  cada palavra, usou-se se a palavra ocorre ou não na mensagem (1 se ocorre e 0 se não ocorre). De
+  forma similar discretizou-se também todas as regras para caracteres.
+}
+
+\subsection{Cross-validation}
+
+\paragraph{
+  A validação cruzada com todos os possíveis parâmetros discutidos acima demorou 2h11 (:O) para ser
+  completada, com os parâmetros de Cross-Validation 10-folds no Weka em um Linux Mint 17.1 Rebecca
+  com CPU Intel(R) Core i7-4500U @ 1.80 GHz e 16 GB de RAM.
+}
+
+\begin{table}[thb]
+\scriptsize
+{\centering \begin{tabular}{lr@{\hspace{0cm}}c@{\hspace{0cm}}r}
+\\
+\hline
+Dataset & \multicolumn{3}{c}{correct \% $\pm$ StdDev}\\
+\hline
+lazy.IBk '-K 5 -W 0 -A \" LinearNNSearch -A ChebyshevDistance -R first-last & 86.8777 \% & $\pm$ & 0.2356\\
+lazy.IBk '-K 1 -W 0 -A \" LinearNNSearch -A ChebyshevDistance -R first-last & 91.8813 \% & $\pm$ & 0.7479\\
+lazy.IBk '-K 5 -W 0 -A \" LinearNNSearch -A ManhattanDistance -R first-last & 93.2716 \% & $\pm$ & 0.7195\\
+lazy.IBk '-K 5 -W 0 -A \" LinearNNSearch -A EuclideanDistance -R first-last & 93.5522 \% & $\pm$ & 0.7072\\
+lazy.IBk '-K 1 -W 0 -X -A \" LinearNNSearch -A EuclideanDistance -R first-last & 95.9730 \% & $\pm$ & 0.6780\\
+lazy.IBk '-K 1 -W 0 -A \" LinearNNSearch -A ManhattanDistance -R first-last & 95.9802 \% & $\pm$ & 0.6614\\
+bayes.NaiveBayes & 96.9982 \% & $\pm$ & 0.7774\\
+trees.BFTree '-S 1 -M 2 -N 5 -C 1.0 -P PREPRUNED' & 97.4838 \% & $\pm$ & 0.5662\\
+trees.BFTree '-S 1 -M 2 -N 5 -G -C 1.0 -P PREPRUNED' & 97.5647 \% & $\pm$ & 0.6164\\
+trees.J48 '-C 0.25 -M 2' & 98.1079 \% & $\pm$ & 0.5173\\
+trees.J48 '-C 0.25 -M 2 -A' & 98.1079 \% & $\pm$ & 0.5173\\
+bayes.NaiveBayes -D & 98.1313 \% & $\pm$ & 0.5213\\
+bayes.NaiveBayes -K & 98.5612 \% & $\pm$ & 0.4494\\
+\hline
+Average & 95.5762 \% &       &       \\
+\hline
+\end{tabular} \scriptsize \par}
+\end{table}
+
+\subsection{Respostas para validação}
+
+\paragraph{
+  1. Pode-se ver que o melhor classificador no conjunto de validação é a Naive Bayes com Kernel
+  Estimator, já que tem maior porcentagem de acerto com um baixo desvio padrão.
+}
+
+\paragraph{
+  2. Quando feito apenas com 66\% do conjunto como treino e o restante como teste, é possível que
+  tenhamos tido sorte com os testes e portanto o resultado fica viesado. Com a validação cruzada
+  testamos vários testes com diferentes treinos, o que torna o resultado menos viesado (ainda que
+  com um tanto de viés).
+}
+
+\paragraph{
+  3. A Naive Bayes com Kernel Estimator teve melhores resultados pois usa as propriedades de
+  dependência de uma Rede Bayesiana. Por isso, podemos achar probabilidades que não acharíamos por
+  exemplo no Nearest Neighbour, já que este apenas vê seus vizinhos mais próximos e não acharia
+  relações que poderiam tornar a classificação melhor.
+}
+
+\paragraph{
+  4. Comparações nunca vão ser completamente confiáveis, já que nunca poderemos usar um conjunto
+  infinito de treino para termos 100\% de confiança que os resultados são corretos. No entanto,
+  para melhorarmos a confiança das comparações podemos sempre usar os mesmos conjuntos de treinos
+  e testes em diferentes classificadores, tendo então comparações menos viesadas.
+}
+
+\section{Algumas árvores :)}
+
+\paragraph {
+  O Weka, em modo debug, imprime as árvores de decisão usadas. Visualizando as árvores usadas no
+  método \texttt{j48tree}, \texttt{BFTree} com corte e \texttt{BFTree} sem corte, pode-se ver que
+  apesar da árvore \texttt{j48} ter se saído melhor na classificação vista na seção anterior, a
+  árvore gerada é maior que as geradas pela \texttt{BFTree} (tanto com corte e sem corte).
+}
+
+\lstinputlisting[caption={Uma \texttt{j48tree} onde os nós decisões são as regras ou tokens
+  mencionados na seção de pré-processamento e as folhas são as classificações.}]{j48tree.txt}
+
+\lstinputlisting[caption={Uma \texttt{BFTree} sem corte. Esta árvore é um pouco menor que a
+  \texttt{j48}, mas sua classificação gerou piores resultados.}]{bftree.txt}
+
+\lstinputlisting[caption={Uma \texttt{BFTree} com pre-corte. Esta árvore é muito menor que as
+  outras e ainda teve melhores resultados que a mesma árvore sem corte.}]{bftree-pruned.txt}
+
+\section{Conclusões}
+
+\printbibliography
+
+\end{document}

@@ -1,0 +1,34 @@
+digits < 4.5
+|  FREE < 0.5
+|  |  co < 0.5
+|  |  |  STOP < 0.5
+|  |  |  |  http < 0.5: ham(4753.0/65.0)
+|  |  |  |  http >= 0.5: spam(5.0/0.0)
+|  |  |  STOP >= 0.5: spam(6.0/1.0)
+|  |  co >= 0.5: spam(9.0/0.0)
+|  FREE >= 0.5: spam(11.0/1.0)
+digits >= 4.5
+|  7 < 0.5
+|  |  digits < 9.5
+|  |  |  is_cap < 8.5
+|  |  |  |  spec_char < 11.5
+|  |  |  |  |  is_cap < 5.5
+|  |  |  |  |  |  your < 0.5
+|  |  |  |  |  |  |  length < 31.5: spam(2.0/0.0)
+|  |  |  |  |  |  |  length >= 31.5
+|  |  |  |  |  |  |  |  service < 0.5: ham(16.0/2.0)
+|  |  |  |  |  |  |  |  service >= 0.5: spam(2.0/0.0)
+|  |  |  |  |  |  your >= 0.5: spam(4.0/0.0)
+|  |  |  |  |  is_cap >= 5.5: spam(10.0/0.0)
+|  |  |  |  spec_char >= 11.5: ham(12.0/0.0)
+|  |  |  is_cap >= 8.5
+|  |  |  |  is_cap < 49.0: spam(55.0/2.0)
+|  |  |  |  is_cap >= 49.0: ham(3.0/1.0)
+|  |  digits >= 9.5
+|  |  |  one < 0.5
+|  |  |  |  spec_char < 26.5: spam(571.0/2.0)
+|  |  |  |  spec_char >= 26.5: ham(2.0/0.0)
+|  |  |  one >= 0.5: ham(3.0/0.0)
+|  7 >= 0.5
+|  |  digits < 15.0: ham(18.0/1.0)
+|  |  digits >= 15.0: spam(3.0/0.0)

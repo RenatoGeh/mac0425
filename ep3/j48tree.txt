@@ -1,0 +1,64 @@
+digits <= 4
+|   mobile <= 0
+|   |   reply <= 0
+|   |   |   Your <= 0
+|   |   |   |   digits <= 1
+|   |   |   |   |   Dear <= 0: ham (4324.0/27.0)
+|   |   |   |   |   Dear > 0
+|   |   |   |   |   |   co <= 0: ham (30.0)
+|   |   |   |   |   |   co > 0: spam (3.0)
+|   |   |   |   digits > 1
+|   |   |   |   |   your <= 0
+|   |   |   |   |   |   with <= 0
+|   |   |   |   |   |   |   is_cap <= 10: ham (290.0/5.0)
+|   |   |   |   |   |   |   is_cap > 10
+|   |   |   |   |   |   |   |   Reply <= 0
+|   |   |   |   |   |   |   |   |   To <= 0: ham (54.0/6.0)
+|   |   |   |   |   |   |   |   |   To > 0: spam (3.0)
+|   |   |   |   |   |   |   |   Reply > 0: spam (3.0)
+|   |   |   |   |   |   with > 0
+|   |   |   |   |   |   |   about <= 0
+|   |   |   |   |   |   |   |   is_cap <= 9: ham (13.0)
+|   |   |   |   |   |   |   |   is_cap > 9: spam (3.0)
+|   |   |   |   |   |   |   about > 0: spam (3.0)
+|   |   |   |   |   your > 0
+|   |   |   |   |   |   spec_char <= 6: ham (20.0/1.0)
+|   |   |   |   |   |   spec_char > 6: spam (12.0/1.0)
+|   |   |   Your > 0
+|   |   |   |   digits <= 1: ham (26.0/2.0)
+|   |   |   |   digits > 1: spam (4.0)
+|   |   reply > 0
+|   |   |   is_cap <= 9: ham (24.0)
+|   |   |   is_cap > 9: spam (11.0/1.0)
+|   mobile > 0
+|   |   your <= 0
+|   |   |   digits <= 2: ham (13.0)
+|   |   |   digits > 2: spam (2.0)
+|   |   your > 0: spam (13.0)
+digits > 4
+|   3 <= 0
+|   |   digits <= 10
+|   |   |   good <= 0
+|   |   |   |   me <= 0
+|   |   |   |   |   I <= 0
+|   |   |   |   |   |   is_cap <= 4
+|   |   |   |   |   |   |   your <= 0
+|   |   |   |   |   |   |   |   service <= 0
+|   |   |   |   |   |   |   |   |   is_cap <= 1
+|   |   |   |   |   |   |   |   |   |   length <= 34: spam (2.0)
+|   |   |   |   |   |   |   |   |   |   length > 34: ham (3.0/1.0)
+|   |   |   |   |   |   |   |   |   is_cap > 1: ham (9.0)
+|   |   |   |   |   |   |   |   service > 0: spam (2.0)
+|   |   |   |   |   |   |   your > 0: spam (5.0)
+|   |   |   |   |   |   is_cap > 4: spam (78.0/4.0)
+|   |   |   |   |   I > 0: ham (6.0/1.0)
+|   |   |   |   me > 0: ham (6.0)
+|   |   |   good > 0: ham (7.0)
+|   |   digits > 10: spam (555.0/5.0)
+|   3 > 0
+|   |   or <= 0
+|   |   |   2 <= 0
+|   |   |   |   so <= 0: spam (8.0)
+|   |   |   |   so > 0: ham (3.0)
+|   |   |   2 > 0: ham (17.0)
+|   |   or > 0: spam (8.0)

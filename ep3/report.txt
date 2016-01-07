@@ -1,0 +1,92 @@
+Training set = 66%, test set = remainder
+
+Nearest Neighbour
+  @Euclidean
+    -KNN 1
+      -- (training_set, test_set) = (66%, remainder) --
+      correct = 95.1323 %
+      mean abs error = 0.0489
+      relative abs error = 21.167 %
+      -- cross-validation (10-folds) --
+      correct = 95.9532 %
+      mean abs error = 0.406
+      relative abs error = 17.4658 %
+    -KNN 5
+      -- (training_set, test_set) = (66%, remainder) --
+      correct = 94.9735 %
+      mean abs error = 0.0554
+      relative abs error = 23.9808
+      -- cross-validation (10-folds) --
+      correct = 93.759 %
+      mean abs error = 0.0642
+      relative abs error = 27.5783 %
+  @Manhattan
+    -KNN 1
+      correct = 95.0794 %
+      mean abs error =  0.0493
+      relative abs error = 21.3168 %
+    -KNN 5
+      -- (training_set, test_set) = (66%, remainder) --
+      correct = 95.0794 %
+      mean abs error = 0.0531
+      relative abs error = 22.9949 %
+      -- cross-validation (10-folds) --
+      correct = 94.1727 %
+      mean abs error = 0.0605
+      relative abs error = 25.9826 %
+  @Levenshtein
+    -KNN 1
+      correct = 95.0794 %
+      mean abs error = 0.0493
+      relative abs error = 21.3168 %
+    -KNN 5
+      #error
+  @Chebyshev
+    -KNN 1
+      correct = 91.0053 %
+      mean abs error = 0.185
+      relative abs error = 80.0721 %
+    -KNN 5
+      -- (training_set, test_set) = (66%, remainder) --
+      correct = 87.3545 %
+      mean abs error = 0.2259
+      relative abs error = 97.7585%
+      -- cross-validation (10-folds) --
+      correct = 86.9604 %
+      mean abs error = 0.1981
+      relative abs error = 85.1467 %
+      
+DecisionTree
+  @j48 algorithm (w/ confidenceFactor = 0.25)
+    -LaPlace=false
+      correct = 98.2011 %
+      mean abs error = 0.0287
+      relative abs error = 12.3106 %
+    -LaPlace=true
+      correct = 98.2011 %
+      mean abs error = 0.032
+      relative abs error = 13.8544 %
+  @BFTree (Best-first Decision Tree)
+    -Gini=true
+      correct = 97.672 %
+      mean abs error = 0.0425
+      relative abs error = 18.4121 %
+    -Gini=false
+      correct = 97.5132 %
+      mean abs error = 0.0427
+      relative abs error = 18.4906 %
+      
+NaiveBayes
+  @Simple
+    correct = 95.0265 %
+    mean abs error = 0.0497
+    relative abs error = 21.4892 %
+  @KernelEstimator
+    correct = 98.4127 %
+    mean abs error = 0.0161
+    relative abs error = 6.9828 %
+  @SupervisedDiscretization
+    correct = 98.4656 %
+    mean abs error = 0.0174
+    relative abs error = 7.5302 %
+    

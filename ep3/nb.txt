@@ -1,0 +1,13 @@
+NaiveBayes
+  @Simple
+    correct = 95.0265 %
+    mean abs error = 0.0497
+    relative abs error = 21.4892 %
+  @KernelEstimator
+    correct = 98.4127 %
+    mean abs error = 0.0161
+    relative abs error = 6.9828 %
+  @SupervisedDiscretization
+    correct = 98.4656 %
+    mean abs error = 0.0174
+    relative abs error = 7.5302 %
